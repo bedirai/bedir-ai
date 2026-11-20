@@ -1,0 +1,77 @@
+# BedirAI Phase 0 — Bedir-8B Debater Self-Play RL (DAPO + SPIRAL RAE + Quote-Hash Gate)
+# Framework: verl (FSDP + vLLM rollout)
+# Supported hardware: AMD ROCm (MI250X / MI300X / MI355X) and NVIDIA CUDA (H100 / H200)
+#
+# Key design choices:
+#   - Role-Conditioned Advantage Estimation (SPIRAL RAE, arXiv:2506.24119) prevents
+#     thinking collapse in two-player zero-sum self-play
+#   - Hard deterministic quote-hash gate (bedir/verify.py): any unverified quote -> r = -1.0
+#   - Hard turn length cap (150 words, Kenton et al. arXiv:2608.17776) prevents critic gaming
+#   - Fictitious self-play opponent pool (last k checkpoints) prevents cyclic collapse
+
+algorithm:
+  adv_estimator: grpo
+  role_conditioned_baseline: true   # SPIRAL RAE: separate baseline per role (FOR / AGAINST)
+  clip_ratio_low: 0.20
+  clip_ratio_high: 0.28             # DAPO clip-higher
+  token_level_loss: true
+  use_kl_in_reward: false
+
+debate_protocol:
+  rounds: 2
+  assigned_side_ratio: 0.70
+  open_side_ratio: 0.30
+  judge_sees_document: false        # strict information asymmetry (Kenton et al., 2024)
+  randomise_judge_side_order: true
+  turn_word_limit: 150
+  opponent_pool_last_k: 4
+
+data:
+  data_source: bedir_debater_selfplay
+  train_files: data/phase0/debate_train.parquet
+  val_files: data/phase0/debate_val_temporal.parquet
+  max_prompt_length: 6144
+  max_response_length: 2048
+  train_batch_size: 64
+
+actor_rollout_ref:
+  model:
+    path: checkpoints/phase0/hilal-8b-sft
+    enable_gradient_checkpointing: true
+    use_remove_padding: true
+  actor:
+    strategy: fsdp
+    optim:
+      lr: 1.0e-6
+    ppo_mini_batch_size: 64
+    ppo_micro_batch_size_per_gpu: 1
+    fp32_lm_head: true
+  rollout:
+    name: vllm
+    tensor_model_parallel_size: 2   # fits 64 GB GCD on MI250X and 80 GB H100
+    n: 8
+    temperature: 0.8
+    gpu_memory_utilization: 0.65
+
+judge:
+  model_path: checkpoints/phase0/mizan-8b-grpo
+  frozen_during_debater_rl: true
+
+custom_reward_function:
+  path: bedir/rewards.py
+  name: verl_compute_score
+  reward_kwargs:
+    word_limit: 150
+    lambda_len: 0.005
+    lambda_cf: 0.15
+
+trainer:
+  project_name: bedir-phase0
+  experiment_name: bedir-8b-selfplay-dapo-rae
+  total_training_steps: 500
+  n_gpus_per_node: 8
+  nnodes: 2
+  save_freq: 50
+  test_freq: 25
+  zero_variance_prompt_filter: true
+  halt_on_persuasion_shift_gt: 0.0  # monitor PS = d(wrong_win)/d(step) - d(judge_acc)/d(step)

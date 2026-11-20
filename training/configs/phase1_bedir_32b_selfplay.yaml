@@ -1,0 +1,76 @@
+# BedirAI Phase 1 — Bedir-32B Self-Play Debate RL (Weak-Judge Scalable Oversight)
+# Gate: launches ONLY after Phase 0 proves debate lifts Mizan-8B accuracy on real outcomes
+#       and empirical 4-to-32-GPU scaling logs are verified.
+# Budget: ~55,000 H100-hours across main runs, RLAIF/consultancy baselines and ablations.
+
+algorithm:
+  adv_estimator: grpo
+  role_conditioned_baseline: true   # SPIRAL RAE
+  clip_ratio_low: 0.20
+  clip_ratio_high: 0.28             # DAPO clip-higher
+  token_level_loss: true
+  pipeline_rl_k: 8                  # ScaleRL recipe (arXiv:2510.13786)
+  use_kl_in_reward: false
+
+debate_protocol:
+  rounds: 3
+  assigned_side_ratio: 0.70
+  open_side_ratio: 0.30
+  judge_sees_document: false
+  randomise_judge_side_order: true
+  turn_word_limit: 150
+  opponent_pool_last_k: 6
+
+data:
+  data_source: bedir_debater_selfplay
+  train_files: data/phase1/debate_tr_en_de_train.parquet
+  val_files: data/phase1/mizan_bench_val_temporal.parquet
+  max_prompt_length: 12288
+  max_response_length: 2560
+  train_batch_size: 128
+
+actor_rollout_ref:
+  model:
+    # Shared 32B CPT checkpoint trained strictly on permissive open-weight base + clean public corpora
+    path: checkpoints/phase1/bedir-32b-sft
+    enable_gradient_checkpointing: true
+    use_remove_padding: true
+  actor:
+    strategy: fsdp
+    optim:
+      lr: 8.0e-7
+      weight_decay: 0.01
+    ppo_mini_batch_size: 128
+    ppo_micro_batch_size_per_gpu: 1
+    fp32_lm_head: true              # ScaleRL stability requirement
+  rollout:
+    name: vllm
+    tensor_model_parallel_size: 4   # 4x80GB H100 or 2x192GB/288GB MI300X/MI355X
+    n: 8
+    temperature: 0.8
+    gpu_memory_utilization: 0.70
+
+judge:
+  # Deliberately weaker 8B judge tests weak-to-strong oversight; 32B strong judge serves as PGR ceiling
+  model_path: checkpoints/phase0/mizan-8b-hardened
+  strong_ceiling_model_path: checkpoints/phase1/mizan-32b-grpo
+  frozen_during_debater_rl: true
+
+custom_reward_function:
+  path: bedir/rewards.py
+  name: verl_compute_score
+  reward_kwargs:
+    word_limit: 150
+    lambda_len: 0.005
+    lambda_cf: 0.15
+
+trainer:
+  project_name: bedir-phase1
+  experiment_name: bedir-32b-selfplay-weak-judge
+  total_training_steps: 1000
+  n_gpus_per_node: 8
+  nnodes: 8                         # 64 GPUs
+  save_freq: 100
+  test_freq: 50
+  zero_variance_prompt_filter: true
+  halt_on_persuasion_shift_gt: 0.0

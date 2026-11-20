@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Verify recorded debates offline (quote-hash replay)
+        run: |
+          NO_COLOR=1 python -m bedir --replay examples/debates/en-commercial-lease.json
+          NO_COLOR=1 python -m bedir --replay examples/debates/tr-dort-gunluk-hafta.json
+          NO_COLOR=1 python -m bedir --replay examples/debates/de-ki-kreditmodell.json
+
+      - name: Run evaluation harness & Mizan-Bench validation
+        run: |
+          python -m bedir.eval --debates examples/debates
+          python -m bedir.eval --validate-bench benchmarks/mizan_bench_sample.jsonl
+
+      - name: Verify compute budget model & scaling harness
+        run: |
+          python -m training.compute_model --phase phase1 --hardware H100 --sensitivity
+          python -m training.compute_model --phase phase1 --hardware MI355X
+          python -m training.scaling.benchmark_harness training/scaling/schema_example.json
+
+      - name: Verify package editable install & CLI entry points
+        run: |
+          python -m pip install --no-build-isolation --no-deps . || python -m pip install --no-deps .
+          bedir-eval --debates examples/debates --json > /dev/null
+          bedir-compute --phase phase1 --json > /dev/null
+
+  node:
+    name: Node.js example syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check JS example syntax
+        run: node --check examples/javascript/debate.mjs

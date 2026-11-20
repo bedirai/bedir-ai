@@ -1,0 +1,68 @@
+# BedirAI Phase 0 — Mizan-8B Judge RL (GRPO, Brier calibration + position invariance)
+# Framework: verl (FSDP + vLLM rollout)
+# Supported hardware: AMD ROCm (MI250X / MI300X / MI355X) and NVIDIA CUDA (H100 / H200)
+#
+# Key design choices grounded in the literature:
+#   - norm_adv_by_std_in_grpo: false  -> preserves Brier calibration gradients instead of
+#     pushing probabilities to 0/1 extremes (arXiv:2505.17989, RLCR arXiv:2507.16806)
+#   - position-swap consistency + master-key negative augmentation (arXiv:2507.08794)
+#   - judge sees ONLY verified quotes, never the full source document (Kenton et al., 2024)
+
+algorithm:
+  adv_estimator: grpo
+  norm_adv_by_std_in_grpo: false
+  use_kl_in_reward: false
+  kl_ctrl:
+    kl_coef: 0.0
+
+data:
+  data_source: bedir_mizan_judge
+  train_files: data/phase0/mizan_train.parquet
+  val_files: data/phase0/mizan_val_temporal.parquet
+  max_prompt_length: 6144
+  max_response_length: 1536
+  train_batch_size: 64
+  filter_overlong_prompts: true
+  # Include A/B side-swapped pairs and master-key negative probes (":", "Solution:", empty CoT)
+  position_swap_augmentation: true
+  master_key_negative_ratio: 0.05
+
+actor_rollout_ref:
+  model:
+    # Permissively licensed open-weight base (Apache-2.0 / MIT only — verified via bedir.lineage)
+    path: Qwen/Qwen3-8B
+    enable_gradient_checkpointing: true
+    use_remove_padding: true
+  actor:
+    strategy: fsdp
+    optim:
+      lr: 1.0e-6
+      weight_decay: 0.01
+    ppo_mini_batch_size: 64
+    ppo_micro_batch_size_per_gpu: 2
+    clip_ratio_low: 0.20
+    clip_ratio_high: 0.28
+    fp32_lm_head: true
+  rollout:
+    name: vllm
+    tensor_model_parallel_size: 1
+    n: 8
+    temperature: 0.7
+    top_p: 0.95
+    gpu_memory_utilization: 0.65
+
+custom_reward_function:
+  path: bedir/rewards.py
+  name: verl_compute_score
+  reward_kwargs:
+    lambda_pos: 0.25
+
+trainer:
+  project_name: bedir-phase0
+  experiment_name: mizan-8b-grpo-brier
+  total_epochs: 2
+  n_gpus_per_node: 8
+  nnodes: 1
+  save_freq: 50
+  test_freq: 25
+  zero_variance_prompt_filter: true

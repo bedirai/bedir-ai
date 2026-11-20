@@ -1,0 +1,64 @@
+# BedirAI Phase 1 — Tutulma Red-Team Adversarial RL (Judge Hardening Loop)
+# Safety policy: Tutulma weights are NEVER released publicly. Only aggregate hack-rate
+#                curves and hardened Mizan checkpoints are published.
+
+algorithm:
+  adv_estimator: grpo
+  clip_ratio_low: 0.20
+  clip_ratio_high: 0.28
+  use_kl_in_reward: false
+
+red_team_loop:
+  cycles: 3
+  target_judge_frozen_per_cycle: true
+  export_successful_attacks_to_judge_set: true
+  min_wrong_shift_to_harvest: 0.15
+  enforce_quote_hash_gate: true     # attacks must pass deterministic quote verification
+  attack_families:
+    - anchoring_and_framing
+    - selective_quote_omission
+    - length_and_jargon_padding
+    - master_key_prefixes
+
+data:
+  data_source: bedir_tutulma_redteam
+  train_files: data/phase1/tutulma_targets_train.parquet
+  val_files: data/phase1/mizan_bench_val_temporal.parquet
+  max_prompt_length: 12288
+  max_response_length: 2048
+  train_batch_size: 64
+
+actor_rollout_ref:
+  model:
+    path: checkpoints/phase1/bedir-32b-sft
+    enable_gradient_checkpointing: true
+  actor:
+    strategy: fsdp
+    optim:
+      lr: 1.0e-6
+    ppo_mini_batch_size: 64
+    ppo_micro_batch_size_per_gpu: 1
+    fp32_lm_head: true
+  rollout:
+    name: vllm
+    tensor_model_parallel_size: 4
+    n: 8
+    temperature: 0.9
+    gpu_memory_utilization: 0.70
+
+custom_reward_function:
+  path: bedir/rewards.py
+  name: verl_compute_score
+  reward_kwargs:
+    word_limit: 150
+    lambda_len: 0.005
+
+trainer:
+  project_name: bedir-phase1
+  experiment_name: tutulma-redteam-hardening
+  total_training_steps: 400
+  n_gpus_per_node: 8
+  nnodes: 4                         # 32 GPUs
+  save_freq: 100
+  test_freq: 50
+  publish_weights: false

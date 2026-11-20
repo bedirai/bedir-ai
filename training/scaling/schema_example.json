@@ -1,0 +1,38 @@
+{
+  "synthetic_schema_example": true,
+  "note": "Synthetic placeholder illustrating the Phase 0 scaling log schema. Real Phase 0 measurements will be published alongside pilot logs.",
+  "run_name": "phase0-bedir-8b-selfplay-schema-example",
+  "hardware": "MI250X",
+  "active_params_b": 8.0,
+  "flops_per_token_multiplier": 8.0,
+  "measurements": [
+    {
+      "gpus": 4,
+      "nodes": 1,
+      "tokens_per_sec": 7200.0,
+      "step_seconds": 124.0,
+      "peak_hbm_gb": 51.2
+    },
+    {
+      "gpus": 8,
+      "nodes": 2,
+      "tokens_per_sec": 13960.0,
+      "step_seconds": 64.0,
+      "peak_hbm_gb": 51.4
+    },
+    {
+      "gpus": 16,
+      "nodes": 4,
+      "tokens_per_sec": 26800.0,
+      "step_seconds": 33.4,
+      "peak_hbm_gb": 51.8
+    },
+    {
+      "gpus": 32,
+      "nodes": 8,
+      "tokens_per_sec": 51200.0,
+      "step_seconds": 17.5,
+      "peak_hbm_gb": 52.1
+    }
+  ]
+}
