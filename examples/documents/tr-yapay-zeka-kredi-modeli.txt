@@ -1,0 +1,24 @@
+MODEL RİSKİ DEĞERLENDİRMESİ: ÖZET (sentetik örnek)
+
+Model: NovaScore v3, harici bir tedarikçiye ait gradyan artırmalı (gradient boosting) kredi skorlama modeli. Kullanım amacı: 50.000'e kadar bireysel kredi başvurularını onaylamak veya reddetmek.
+
+Performans
+2023 ve 2024 yıllarına ait 48.000 geçmiş başvuruda NovaScore v3 0,81 AUC değerine ulaştı. Bankanın mevcut skor kartında bu değer 0,74.
+Aynı onay oranında öngörülen temerrütler %14 azalıyor.
+
+Adillik
+18–25 yaş arasındaki başvuru sahiplerinin onay oranı, mevcut skor kartına göre 11 yüzde puan daha düşük.
+Tedarikçi yaşın bir girdi olmadığını belirtiyor. Ancak model, yaşla güçlü biçimde ilişkili olan kredi geçmişi uzunluğunu kullanıyor.
+
+Açıklanabilirlik
+Tedarikçi her karar için gerekçe kodları sağlıyor. Reddedilen 200 başvuruluk bir örneklemde inceleme ekibi, 37 vakada ana gerekçe kodunu anlaşılmaz buldu.
+
+Operasyon
+Tedarikçi eğitim verisini veya model ağırlıklarını paylaşmayacak. İzleme, tedarikçinin aylık raporlarına dayanacak.
+Mevcut skor kartının lisansı dokuz ay içinde sona eriyor.
+
+Mevzuat
+Bankanın iç politikasına göre kredi kararlarında kullanılan her model, eğitim verisinin bağımsız olarak doğrulanmasına imkân vermelidir.
+AB Yapay Zekâ Yasası, bireylerin kredi skorlamasını yüksek riskli olarak sınıflandırır ve hem sağlayıcılara hem de uygulayıcılara yükümlülükler getirir.
+
+İnceleme ekibinin önerisi. Koşullu onay: canlıya geçişten önce bağımsız bir adillik denetimi yapılması ve eğitim verisine sözleşmeyle erişim sağlanması şartıyla.

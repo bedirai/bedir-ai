@@ -1,0 +1,24 @@
+MODEL RISK REVIEW: SUMMARY (synthetic sample)
+
+Model: NovaScore v3, a gradient-boosted credit-scoring model from an external vendor. Intended use: approve or decline personal loans up to 50,000.
+
+Performance
+On 48,000 historical applications from 2023 and 2024, NovaScore v3 reached an AUC of 0.81, compared with 0.74 for the bank's current scorecard.
+At the same approval rate, projected defaults fall by 14%.
+
+Fairness
+Approval rates for applicants aged 18 to 25 are 11 percentage points lower than under the current scorecard.
+The vendor states that age is not an input, but the model uses length of credit history, which is strongly correlated with age.
+
+Explainability
+The vendor provides reason codes for each decision. In a sample of 200 declined applications, reviewers found the main reason code unclear in 37 cases.
+
+Operations
+The vendor will not share training data or model weights. Monitoring would rely on monthly reports from the vendor.
+The licence for the current scorecard expires in nine months.
+
+Regulation
+Under the bank's internal policy, any model used for credit decisions must allow independent validation of its training data.
+Credit scoring of individuals is classified as high-risk under the EU AI Act, with obligations for both providers and deployers.
+
+Reviewer's recommendation. Conditional approval, subject to an independent fairness audit and contractual access to the training data before go-live.

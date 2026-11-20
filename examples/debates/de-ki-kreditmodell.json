@@ -1,0 +1,118 @@
+{
+  "recorded_at": "2026-11-20T22:12:30Z",
+  "api": "https://bedirsavasi.com/api/debate",
+  "lang": "de",
+  "question": "Sollte die Bank das KI-Kreditscoring-Modell des Anbieters im nächsten Quartal einführen?",
+  "document": "MODELLRISIKOPRÜFUNG: ZUSAMMENFASSUNG (synthetisches Beispiel)\n\nModell: NovaScore v3, ein Kreditscoring-Modell eines externen Anbieters auf Basis von Gradient Boosting. Vorgesehener Einsatz: Genehmigung oder Ablehnung von Privatkrediten bis 50.000.\n\nLeistung\nAuf 48.000 historischen Anträgen aus den Jahren 2023 und 2024 erreichte NovaScore v3 eine AUC von 0,81, gegenüber 0,74 für die aktuelle Scorecard der Bank.\nBei gleicher Genehmigungsquote sinken die prognostizierten Ausfälle um 14 %.\n\nFairness\nDie Genehmigungsquoten für Antragsteller im Alter von 18 bis 25 Jahren liegen 11 Prozentpunkte unter denen der aktuellen Scorecard.\nDer Anbieter gibt an, dass das Alter kein Eingabemerkmal ist. Das Modell nutzt aber die Länge der Kredithistorie, die stark mit dem Alter korreliert.\n\nErklärbarkeit\nDer Anbieter liefert zu jeder Entscheidung Begründungscodes. In einer Stichprobe von 200 abgelehnten Anträgen fanden die Prüfer den Hauptbegründungscode in 37 Fällen unklar.\n\nBetrieb\nDer Anbieter gibt weder Trainingsdaten noch Modellgewichte heraus. Die Überwachung wäre auf monatliche Berichte des Anbieters angewiesen.\nDie Lizenz für die aktuelle Scorecard läuft in neun Monaten aus.\n\nRegulierung\nNach der internen Richtlinie der Bank muss jedes Modell für Kreditentscheidungen eine unabhängige Validierung seiner Trainingsdaten ermöglichen.\nDie Kreditwürdigkeitsprüfung natürlicher Personen gilt nach der EU-KI-Verordnung (AI Act) als Hochrisiko-Anwendung, mit Pflichten sowohl für Anbieter als auch für Betreiber.\n\nEmpfehlung des Prüfers. Bedingte Freigabe, vorbehaltlich eines unabhängigen Fairness-Audits und eines vertraglich gesicherten Zugangs zu den Trainingsdaten vor dem Produktivstart.",
+  "wall_seconds": 16.7,
+  "events": [
+    {
+      "type": "start",
+      "remaining": 7
+    },
+    {
+      "type": "sides",
+      "for": {
+        "thesis": "Die Bank sollte NovaScore v3 einführen, da es die Ausfälle signifikant senkt und die regulatorischen Hürden durch vertragliche Zusicherungen vor dem Start überwindbar sind.",
+        "claims": [
+          {
+            "text": "Das Modell reduziert die prognostizierten Ausfälle um vierzehn Prozent bei gleicher Genehmigungsquote gegenüber der alten Scorecard.",
+            "quote": "Bei gleicher Genehmigungsquote sinken die prognostizierten Ausfälle um 14 %.",
+            "verified": true,
+            "start": 414,
+            "end": 490,
+            "sha256": "d47d43c5eb3775841ef619b8e0cf803ddef0a65ed60331a2afd9f28a90ba508e"
+          },
+          {
+            "text": "Die Leistung des neuen Modells übertrifft die aktuelle Scorecard deutlich mit einer AUC von 0,81 gegenüber 0,74.",
+            "quote": "erreichte NovaScore v3 eine AUC von 0,81, gegenüber 0,74 für die aktuelle Scorecard der Bank.",
+            "verified": true,
+            "start": 320,
+            "end": 413,
+            "sha256": "fcc65c44954bc17e4738b450bb0ae485e02bc301c7bb611305f83c248dbcf5cd"
+          },
+          {
+            "text": "Die Bedenken bezüglich Datenzugang und Fairness werden durch die geforderte unabhängige Prüfung vor dem Produktivstart adressiert.",
+            "quote": "vorbehaltlich eines unabhängigen Fairness-Audits und eines vertraglich gesicherten Zugangs zu den Trainingsdaten vor dem Produktivstart.",
+            "verified": true,
+            "start": 1560,
+            "end": 1696,
+            "sha256": "a57f5dc9c4cabf5d74f3774952bf6946b1b914e6afbf3f6a5bb3d972d1eeceea"
+          }
+        ]
+      },
+      "against": {
+        "thesis": "Die Einführung von NovaScore v3 ist unzulässig, da es die internen Validierungspflichten verletzt und unakzeptable Fairness-Risiken für junge Antragsteller birgt.",
+        "claims": [
+          {
+            "text": "Das Modell verstößt gegen die interne Richtlinie, da der Anbieter keine unabhängige Validierung der Trainingsdaten ermöglicht.",
+            "quote": "Der Anbieter gibt weder Trainingsdaten noch Modellgewichte heraus.",
+            "verified": true,
+            "start": 981,
+            "end": 1047,
+            "sha256": "6773d9e9f75d8791d77fb1d338ac9ae565e1275f1ecc3f41431d2d294f9130e5"
+          },
+          {
+            "text": "Junge Antragsteller werden diskriminiert, da die Genehmigungsquoten trotz fehlendem Altersmerkmal signifikant niedriger sind.",
+            "quote": "Die Genehmigungsquoten für Antragsteller im Alter von 18 bis 25 Jahren liegen 11 Prozentpunkte unter denen der aktuellen Scorecard.",
+            "verified": true,
+            "start": 501,
+            "end": 632,
+            "sha256": "dcddff3fbd4bcadea63b2c2201f0d54ba2cc40b9b54a628bd68be3fc51332153"
+          },
+          {
+            "text": "Die mangelnde Transparenz der Ablehnungsbegründungen untergräbt die rechtliche Sicherheit und Nachvollziehbarkeit der Entscheidungen.",
+            "quote": "In einer Stichprobe von 200 abgelehnten Anträgen fanden die Prüfer den Hauptbegründungscode in 37 Fällen unklar.",
+            "verified": true,
+            "start": 859,
+            "end": 971,
+            "sha256": "20a42337b1ce6a42a77c456123d54073375b6cf498a1fee27fc6425f18beae0b"
+          }
+        ]
+      }
+    },
+    {
+      "type": "rebuttals",
+      "for": {
+        "text": "Der Vorwurf der mangelnden Transparenz ist übertrieben. In der Stichprobe waren nur 37 von 200 Fällen unklar, was eine hohe Nachvollziehbarkeit von 81,5 % belegt. Die verbleibenden Fälle sind durch gezielte Schulungen der Mitarbeiter schnell behebar, ohne die Einführung des leistungsfähigen Modells zu gefährden.",
+        "target": 3,
+        "quote": "In einer Stichprobe von 200 abgelehnten Anträgen fanden die Prüfer den Hauptbegründungscode in 37 Fällen unklar.",
+        "verified": true,
+        "start": 859,
+        "end": 971,
+        "sha256": "20a42337b1ce6a42a77c456123d54073375b6cf498a1fee27fc6425f18beae0b"
+      },
+      "against": {
+        "text": "Die Bedingung ist unzureichend, da die interne Richtlinie zwingend eine unabhängige Validierung der Trainingsdaten verlangt. Ein bloßes Audit genügt nicht, wenn der Anbieter die Daten nicht herausgibt. Zudem ist die Lizenz der alten Scorecard in neun Monaten abgelaufen, was den Zeitplan gefährdet.",
+        "target": 3,
+        "quote": "Der Anbieter gibt weder Trainingsdaten noch Modellgewichte heraus.",
+        "verified": true,
+        "start": 981,
+        "end": 1047,
+        "sha256": "6773d9e9f75d8791d77fb1d338ac9ae565e1275f1ecc3f41431d2d294f9130e5"
+      }
+    },
+    {
+      "type": "verdict",
+      "p_for": 35,
+      "verdict": "Die Einführung sollte abgelehnt werden, da die Compliance-Verstöße schwerer wiegen als die Effizienzgewinne. Die Weigerung des Anbieters, Trainingsdaten herauszugeben, macht eine interne Validierung gemäß Richtlinie unmöglich.",
+      "cruxes": [
+        "Performance-Gewinn vs. Compliance-Verletzung",
+        "Fairness-Audit vs. tatsächliche Diskriminierung junger Kunden",
+        "Transparenz der Ablehnungsgründe"
+      ],
+      "flip": "Die Bereitstellung der Trainingsdaten und Modellgewichte durch den Anbieter würde die Entscheidung zugunsten von Seite A verschieben."
+    },
+    {
+      "type": "done",
+      "verified": 8,
+      "total": 8,
+      "ms": 15950,
+      "remaining": 7,
+      "engine": {
+        "debater": "@cf/qwen/qwen3.8-27b",
+        "judge": "@cf/google/gemma-4-26b-a4b-it"
+      }
+    }
+  ]
+}

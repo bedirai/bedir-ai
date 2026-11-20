@@ -1,0 +1,56 @@
+[
+  {
+    "file": "en-commercial-lease.txt",
+    "lang": "en",
+    "title": "Early lease termination",
+    "question": "Can the tenant end the lease early without paying the penalty?"
+  },
+  {
+    "file": "en-four-day-week.txt",
+    "lang": "en",
+    "title": "Four-day week for city staff",
+    "question": "Should the city move all of its office staff to a four-day week?"
+  },
+  {
+    "file": "en-ai-credit-model.txt",
+    "lang": "en",
+    "title": "Deploying an AI credit-scoring model",
+    "question": "Should the bank deploy the vendor's AI credit-scoring model next quarter?"
+  },
+  {
+    "file": "tr-kira-sozlesmesi.txt",
+    "lang": "tr",
+    "title": "Kira sözleşmesinin erken feshi",
+    "question": "Kiracı, cezai şart ödemeden kira sözleşmesini erken feshedebilir mi?"
+  },
+  {
+    "file": "tr-dort-gunluk-hafta.txt",
+    "lang": "tr",
+    "title": "Belediye personeli için dört günlük çalışma haftası",
+    "question": "Belediye, tüm büro personelini dört günlük çalışma haftasına geçirmeli mi?"
+  },
+  {
+    "file": "tr-yapay-zeka-kredi-modeli.txt",
+    "lang": "tr",
+    "title": "Yapay zekâ kredi skorlama modelinin devreye alınması",
+    "question": "Banka, tedarikçinin yapay zekâ kredi skorlama modelini gelecek çeyrekte devreye almalı mı?"
+  },
+  {
+    "file": "de-gewerbemietvertrag.txt",
+    "lang": "de",
+    "title": "Vorzeitige Kündigung des Mietvertrags",
+    "question": "Kann der Mieter den Mietvertrag vorzeitig kündigen, ohne die Vertragsstrafe zu zahlen?"
+  },
+  {
+    "file": "de-vier-tage-woche.txt",
+    "lang": "de",
+    "title": "Vier-Tage-Woche in der Stadtverwaltung",
+    "question": "Sollte die Stadt alle Bürobeschäftigten auf eine Vier-Tage-Woche umstellen?"
+  },
+  {
+    "file": "de-ki-kreditmodell.txt",
+    "lang": "de",
+    "title": "Einführung eines KI-Modells für Kreditscoring",
+    "question": "Sollte die Bank das KI-Kreditscoring-Modell des Anbieters im nächsten Quartal einführen?"
+  }
+]

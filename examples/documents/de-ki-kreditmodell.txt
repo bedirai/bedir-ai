@@ -1,0 +1,24 @@
+MODELLRISIKOPRÜFUNG: ZUSAMMENFASSUNG (synthetisches Beispiel)
+
+Modell: NovaScore v3, ein Kreditscoring-Modell eines externen Anbieters auf Basis von Gradient Boosting. Vorgesehener Einsatz: Genehmigung oder Ablehnung von Privatkrediten bis 50.000.
+
+Leistung
+Auf 48.000 historischen Anträgen aus den Jahren 2023 und 2024 erreichte NovaScore v3 eine AUC von 0,81, gegenüber 0,74 für die aktuelle Scorecard der Bank.
+Bei gleicher Genehmigungsquote sinken die prognostizierten Ausfälle um 14 %.
+
+Fairness
+Die Genehmigungsquoten für Antragsteller im Alter von 18 bis 25 Jahren liegen 11 Prozentpunkte unter denen der aktuellen Scorecard.
+Der Anbieter gibt an, dass das Alter kein Eingabemerkmal ist. Das Modell nutzt aber die Länge der Kredithistorie, die stark mit dem Alter korreliert.
+
+Erklärbarkeit
+Der Anbieter liefert zu jeder Entscheidung Begründungscodes. In einer Stichprobe von 200 abgelehnten Anträgen fanden die Prüfer den Hauptbegründungscode in 37 Fällen unklar.
+
+Betrieb
+Der Anbieter gibt weder Trainingsdaten noch Modellgewichte heraus. Die Überwachung wäre auf monatliche Berichte des Anbieters angewiesen.
+Die Lizenz für die aktuelle Scorecard läuft in neun Monaten aus.
+
+Regulierung
+Nach der internen Richtlinie der Bank muss jedes Modell für Kreditentscheidungen eine unabhängige Validierung seiner Trainingsdaten ermöglichen.
+Die Kreditwürdigkeitsprüfung natürlicher Personen gilt nach der EU-KI-Verordnung (AI Act) als Hochrisiko-Anwendung, mit Pflichten sowohl für Anbieter als auch für Betreiber.
+
+Empfehlung des Prüfers. Bedingte Freigabe, vorbehaltlich eines unabhängigen Fairness-Audits und eines vertraglich gesicherten Zugangs zu den Trainingsdaten vor dem Produktivstart.

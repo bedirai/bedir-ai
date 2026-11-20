@@ -1,0 +1,118 @@
+{
+  "recorded_at": "2026-11-20T22:12:30Z",
+  "api": "https://bedirsavasi.com/api/debate",
+  "lang": "tr",
+  "question": "Belediye, tüm büro personelini dört günlük çalışma haftasına geçirmeli mi?",
+  "document": "BELEDİYE MECLİSİNE BİLGİ NOTU: PİLOT SONUÇLARI (sentetik örnek)\n\nGönderen: İnsan Kaynakları Müdürlüğü. Konu: İmar ve Ruhsat Müdürlüğü'nde altı ay süren dört günlük çalışma haftası pilotu.\n\nTasarım. Ocak–Haziran 2026 döneminde 62 büro personeli, tam maaşla dört günde 32 saat çalıştı. Gelirler Müdürlüğü'ndeki 58 kişilik karşılaştırma grubu beş günlük, 40 saatlik düzende kaldı.\n\nSonuçlar\nPilot grupta kişi başına hastalık izni, yıllık bazda 6,1 günden 4,0 güne düştü. Karşılaştırma grubunda 5,8 günde kaldı.\nYapı ruhsatlarında medyan işlem süresi 21 iş gününden 18 iş gününe indi.\nPilot gruptaki dokuz planlı istifadan ikisi geri çekildi. Ankette personel memnuniyeti %54'ten %81'e yükseldi.\nOrtalama telefon bekleme süresi 4 dakikadan 7 dakikaya çıktı, çünkü müdürlük artık cuma günleri kapalı.\nPilot grubun fazla mesai maliyetleri %9 arttı. Artışın büyük kısmı mart ayındaki mevsimsel yoğunlukta gerçekleşti.\nÇalışma saatlerine ilişkin vatandaş şikâyetleri altı ayda 12'den 31'e çıktı.\n\nMaliyet. Uygulamayı 1.400 büro personelinin tamamına yaymak, cuma hizmetlerini açık tutmak için yaklaşık 60 yeni personel alımı gerektirir. Tahmini maliyet yılda 3,1 milyondur.\n\nSınırlılıklar. Pilot randomize değildi. Ruhsat başvuruları 2025'in aynı dönemine göre %7 daha azdı. Personel sendikası, bütçe oylamasından önce uygulamanın kalıcı hâle getirilmesini talep etti.\n\nÖneri. Müdürlüğümüz, belediye genelinde karar verilmeden önce üç müdürlükte daha randomize ikinci bir pilot yapılmasını önerir.",
+  "wall_seconds": 17.3,
+  "events": [
+    {
+      "type": "start",
+      "remaining": 7
+    },
+    {
+      "type": "sides",
+      "for": {
+        "thesis": "Dört günlük çalışma haftası, personel memnuniyetini ve verimliliği artırarak belediyenin sürdürülebilirliğini güçlendiren kritik bir adımdır.",
+        "claims": [
+          {
+            "text": "Personel memnuniyetindeki keskin artış, çalışan bağlılığını ve kurumsal istikrarı doğrudan destekleyen güçlü bir motivasyon kaynağıdır.",
+            "quote": "Ankette personel memnuniyeti %54'ten %81'e yükseldi.",
+            "verified": true,
+            "start": 639,
+            "end": 691,
+            "sha256": "1ecaccc062aa98d60616f43ab7fb7fde22d8812a5048c2c32b97026fe08d1007"
+          },
+          {
+            "text": "İşlem sürelerindeki iyileşme, daha az çalışma günüyle bile hizmet kalitesinin ve operasyonel hızın arttığını kanıtlamaktadır.",
+            "quote": "Yapı ruhsatlarında medyan işlem süresi 21 iş gününden 18 iş gününe indi.",
+            "verified": true,
+            "start": 508,
+            "end": 580,
+            "sha256": "bdf5cf106ce53733866a61b23c51a8b3806e92e04df3b58fae6d6fbd31c1b2cd"
+          },
+          {
+            "text": "Hastalık iznindeki belirgin düşüş, çalışan sağlığının iyileştiğini ve iş gücü kaybının azaldığını göstermektedir.",
+            "quote": "Pilot grupta kişi başına hastalık izni, yıllık bazda 6,1 günden 4,0 güne düştü.",
+            "verified": true,
+            "start": 388,
+            "end": 467,
+            "sha256": "686c0b2ce09b3e797e9363fea414a9dade62f4c319249962b6c67ce83cbefff1"
+          }
+        ]
+      },
+      "against": {
+        "thesis": "Mevcut pilot verileri ve maliyet analizi, dört günlük çalışma haftasının belediye genelinde uygulanmasının hem mali hem de operasyonel açıdan sürdürülebilir olmadığını açıkça göstermektedir.",
+        "claims": [
+          {
+            "text": "Uygulamanın tüm personele yayılması, cuma günleri hizmetin kesintisiz devam etmesi için yaklaşık altmış yeni personel alımını zorunlu kılmaktadır.",
+            "quote": "cuma hizmetlerini açık tutmak için yaklaşık 60 yeni personel alımı gerektirir",
+            "verified": true,
+            "start": 1050,
+            "end": 1127,
+            "sha256": "c4377b587f7c62373c2541d4428dcf65bf4c2562c0f8d267a8af8ec9b08b123e"
+          },
+          {
+            "text": "Dört günlük çalışma düzeni, vatandaşların hizmete erişimini olumsuz etkileyerek telefon bekleme sürelerini ve şikayet sayılarını önemli ölçüde artırmıştır.",
+            "quote": "Ortalama telefon bekleme süresi 4 dakikadan 7 dakikaya çıktı, çünkü müdürlük artık cuma günleri kapalı",
+            "verified": true,
+            "start": 692,
+            "end": 794,
+            "sha256": "9c7c6490f8e7867e61b5854eddba5918d85ead19cbedfd7a27b5643b9264996e"
+          },
+          {
+            "text": "Pilot uygulamanın sonuçları, randomize bir tasarımın eksikliği ve başvuru hacmindeki düşüş nedeniyle genel bir karar için yeterli kanıt niteliği taşımamaktadır.",
+            "quote": "Pilot randomize değildi. Ruhsat başvuruları 2025'in aynı dönemine göre %7 daha azdı",
+            "verified": true,
+            "start": 1182,
+            "end": 1265,
+            "sha256": "bec50dee7c53fd23859c8bb41b0195b982d7b7bf975e1533909da02e372bc19a"
+          }
+        ]
+      }
+    },
+    {
+      "type": "rebuttals",
+      "for": {
+        "text": "Rastgelelik eksikliği, pilotun başarısını geçersiz kılmaz. Personel memnuniyeti %54'ten %81'e yükselmiş ve hastalık izinleri azalmıştır. Bu güçlü veriler, daha geniş kapsamlı bir ikinci pilot için yeterli ön kanıt oluşturur ve belediyenin ilerlemesi gerektiğini gösterir.",
+        "target": 3,
+        "quote": "Ankette personel memnuniyeti %54'ten %81'e yükseldi.",
+        "verified": true,
+        "start": 639,
+        "end": 691,
+        "sha256": "1ecaccc062aa98d60616f43ab7fb7fde22d8812a5048c2c32b97026fe08d1007"
+      },
+      "against": {
+        "text": "İşlem süresindeki iyileşme, pilotun rastgele olmaması ve başvuru sayısındaki düşüş nedeniyle kanıt değeri taşımaz. Bu artış, çalışma haftasının başarısını değil, dışsal faktörlerin etkisini yansıtır. Dolayısıyla genel bir kalite artışı iddiası desteklenemez.",
+        "target": 2,
+        "quote": "Pilot randomize değildi. Ruhsat başvuruları 2025'in aynı dönemine göre %7 daha azdı.",
+        "verified": true,
+        "start": 1182,
+        "end": 1266,
+        "sha256": "aae3137d13bc764e5a3fbda87e6f20793abaad7ff9e7a41718c04a262edae9b5"
+      }
+    },
+    {
+      "type": "verdict",
+      "p_for": 35,
+      "verdict": "Mevcut kanıtlar, hizmet kalitesindeki düşüş ve personel maliyetindeki artış nedeniyle genel uygulamaya karşı daha ağır basmaktadır. Personel memnuniyetindeki artış önemli olsa da, belediyecilik hizmetlerinin sürekliliği ve mali sürdürülebilirliği daha belirleyici kriterlerdir.",
+      "cruxes": [
+        "Hizmet kalitesi ve vatandaş erişimi",
+        "Ek personel maliyeti ve bütçe etkisi",
+        "Pilot verilerinin bilimsel geçerliliği"
+      ],
+      "flip": "Eğer dört günlük düzenin ek personel alımı gerektirmediği ve vatandaş bekleme sürelerini artırmadığı kanıtlanırsa karar değişir."
+    },
+    {
+      "type": "done",
+      "verified": 8,
+      "total": 8,
+      "ms": 16507,
+      "remaining": 7,
+      "engine": {
+        "debater": "@cf/qwen/qwen3.8-27b",
+        "judge": "@cf/google/gemma-4-26b-a4b-it"
+      }
+    }
+  ]
+}
