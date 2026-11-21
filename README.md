@@ -18,7 +18,7 @@ Bedir makes two AI debaters argue opposite answers to a hard question about a do
 
 *Bedir* means full moon. The moon is full only in opposition, when it stands 180° from the sun. An argument is complete only when it faces the strongest case against it.
 
-[**Try the live Arena →**](https://bedirsavasi.com/arena/) &nbsp;·&nbsp; [Protocol & API](docs/protocol.md) &nbsp;·&nbsp; [Training Program](docs/TRAINING.md) &nbsp;·&nbsp; [Evaluation & Metrics](docs/EVALUATION.md) &nbsp;·&nbsp; [Model Cards](docs/MODEL_CARDS.md) &nbsp;·&nbsp; [Data Governance](docs/DATA_GOVERNANCE.md) &nbsp;·&nbsp; [Roadmap](docs/ROADMAP.md)
+[**Try the live Arena →**](https://bedirsavasi.com/arena/) &nbsp;·&nbsp; [API Docs](https://bedirsavasi.com/docs/) &nbsp;·&nbsp; [Plans](https://bedirsavasi.com/pricing/) &nbsp;·&nbsp; [Protocol & API](docs/protocol.md) &nbsp;·&nbsp; [Training Program](docs/TRAINING.md) &nbsp;·&nbsp; [Evaluation & Metrics](docs/EVALUATION.md) &nbsp;·&nbsp; [Model Cards](docs/MODEL_CARDS.md) &nbsp;·&nbsp; [Data Governance](docs/DATA_GOVERNANCE.md) &nbsp;·&nbsp; [Roadmap](docs/ROADMAP.md)
 
 ---
 
@@ -151,15 +151,19 @@ assert not check_source_policy(
 
 ---
 
-## Recorded live debates
+## Recorded live debates & pilot benchmark (`v0.3.0`)
 
-Real runs against the live API on 20 November 2026 in [`examples/debates/`](examples/debates), verified locally in CI on every push:
+Seven real multilingual runs across all 3 Mizan-Bench preview case groups in [`examples/debates/`](examples/debates), independently hash-verified in CI on every push (**56/56 quotes verbatim · 0 local SHA-256 failures · 100% cross-lingual directional agreement · 10.0 pp mean spread**). Full machine-readable audit bundle: [`benchmarks/pilot_benchmark.json`](benchmarks/pilot_benchmark.json) (live mirror: [bedirsavasi.com/data/pilot-benchmark.json](https://bedirsavasi.com/data/pilot-benchmark.json)).
 
-| File | Language | Question | Quotes verified | Mizan |
+| File | Case Group | Language | Quotes verified | Mizan |
 |---|---|---|---|---|
-| [`en-commercial-lease.json`](examples/debates/en-commercial-lease.json) | English | Can the tenant end the lease early without paying the penalty? | 8 of 8 | 75% for |
-| [`tr-dort-gunluk-hafta.json`](examples/debates/tr-dort-gunluk-hafta.json) | Turkish | Should the city move all office staff to a four-day week? | 8 of 8 | 35% for |
-| [`de-ki-kreditmodell.json`](examples/debates/de-ki-kreditmodell.json) | German | Should the bank deploy the vendor's AI credit-scoring model? | 8 of 8 | 35% for |
+| [`en-commercial-lease.json`](examples/debates/en-commercial-lease.json) | Legal · Commercial lease | English | 8 of 8 | 75% for |
+| [`tr-kira-sozlesmesi.json`](examples/debates/tr-kira-sozlesmesi.json) | Legal · Commercial lease | Turkish | 8 of 8 | 55% for |
+| [`en-four-day-week.json`](examples/debates/en-four-day-week.json) | Policy · Four-day week | English | 8 of 8 | 35% for |
+| [`tr-dort-gunluk-hafta.json`](examples/debates/tr-dort-gunluk-hafta.json) | Policy · Four-day week | Turkish | 8 of 8 | 35% for |
+| [`en-ai-credit-model.json`](examples/debates/en-ai-credit-model.json) | Risk · AI credit model | English | 8 of 8 | 25% for |
+| [`tr-yapay-zeka-kredi-modeli.json`](examples/debates/tr-yapay-zeka-kredi-modeli.json) | Risk · AI credit model | Turkish | 8 of 8 | 35% for |
+| [`de-ki-kreditmodell.json`](examples/debates/de-ki-kreditmodell.json) | Risk · AI credit model | German | 8 of 8 | 35% for |
 
 ---
 

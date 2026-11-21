@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bedir"
-version = "0.2.0"
+version = "0.3.0"
 description = "Evidence-bound adversarial debate client, deterministic quote-hash verifier, RL reward functions, evaluation harness and compute planner for BedirAI."
 readme = "README.md"
 license = "Apache-2.0"
@@ -36,6 +36,8 @@ dependencies = []
 [project.urls]
 Homepage = "https://bedirsavasi.com"
 Arena = "https://bedirsavasi.com/arena/"
+Docs = "https://bedirsavasi.com/docs/"
+Pricing = "https://bedirsavasi.com/pricing/"
 Training = "https://bedirsavasi.com/training/"
 Research = "https://bedirsavasi.com/research/"
 Repository = "https://github.com/bedirai/bedir-ai"

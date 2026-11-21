@@ -31,9 +31,9 @@ jobs:
 
       - name: Verify recorded debates offline (quote-hash replay)
         run: |
-          NO_COLOR=1 python -m bedir --replay examples/debates/en-commercial-lease.json
-          NO_COLOR=1 python -m bedir --replay examples/debates/tr-dort-gunluk-hafta.json
-          NO_COLOR=1 python -m bedir --replay examples/debates/de-ki-kreditmodell.json
+          for f in examples/debates/*.json; do
+            NO_COLOR=1 python -m bedir --replay "$f"
+          done
 
       - name: Run evaluation harness & Mizan-Bench validation
         run: |

@@ -1,0 +1,201 @@
+{
+  "benchmark": "Mizan-Bench Preview (Live Protocol Audit)",
+  "version": "0.3.0",
+  "generated_at": "2026-11-21T15:23:17Z",
+  "engine": {
+    "debater": "@cf/qwen/qwen3.8-27b",
+    "judge": "@cf/google/gemma-4-26b-a4b-it",
+    "runtime": "Cloudflare Workers AI + deterministic SHA-256 quote-hash gate",
+    "note": "Live protocol preview on open-weight models across EN, TR and DE; Bedir/Mizan trained checkpoints replace these baselines as Phase 0/1 finishes."
+  },
+  "summary": {
+    "debates": 7,
+    "case_groups": 3,
+    "languages": [
+      "en",
+      "tr",
+      "de"
+    ],
+    "total_claims": 56,
+    "server_verified": 56,
+    "eclipsed_dropped": 0,
+    "quote_validity_rate": 1.0,
+    "local_sha256_matches": 56,
+    "local_sha256_failures": 0,
+    "mean_latency_s": 38.64,
+    "min_latency_s": 13.81,
+    "max_latency_s": 72.96,
+    "cross_lingual_mean_spread_pp": 10.0,
+    "cross_lingual_max_spread_pp": 20.0,
+    "cross_lingual_agreement_rate": 1.0
+  },
+  "cases": [
+    {
+      "id": "preview-de-ki-kreditmodell",
+      "case_group_id": "case-003-ai-credit-model",
+      "domain": "risk",
+      "lang": "de",
+      "title": "Einführung eines KI-Modells für Kreditscoring",
+      "question": "Sollte die Bank das KI-Kreditscoring-Modell des Anbieters im nächsten Quartal einführen?",
+      "p_for": 35,
+      "p_against": 65,
+      "verified_quotes": 8,
+      "total_quotes": 8,
+      "eclipsed_quotes": 0,
+      "local_sha256_verified": 8,
+      "local_sha256_failed": 0,
+      "latency_s": 15.95,
+      "verdict": "Die Einführung sollte abgelehnt werden, da die Compliance-Verstöße schwerer wiegen als die Effizienzgewinne. Die Weigerung des Anbieters, Trainingsdaten herauszugeben, macht eine interne Validierung gemäß Richtlinie unmöglich.",
+      "cruxes": [
+        "Performance-Gewinn vs. Compliance-Verletzung",
+        "Fairness-Audit vs. tatsächliche Diskriminierung junger Kunden",
+        "Transparenz der Ablehnungsgründe"
+      ],
+      "flip": "Die Bereitstellung der Trainingsdaten und Modellgewichte durch den Anbieter würde die Entscheidung zugunsten von Seite A verschieben.",
+      "recorded_at": "2026-11-20T22:12:30Z"
+    },
+    {
+      "id": "preview-en-ai-credit-model",
+      "case_group_id": "case-003-ai-credit-model",
+      "domain": "risk",
+      "lang": "en",
+      "title": "Deploying an AI credit-scoring model",
+      "question": "Should the bank deploy the vendor's AI credit-scoring model next quarter?",
+      "p_for": 25,
+      "p_against": 75,
+      "verified_quotes": 8,
+      "total_quotes": 8,
+      "eclipsed_quotes": 0,
+      "local_sha256_verified": 8,
+      "local_sha256_failed": 0,
+      "latency_s": 62.47,
+      "verdict": "The bank should not deploy the model because it fails to meet internal validation requirements due to the vendor's refusal to share data. Superior predictive accuracy cannot override the inability to perform mandatory independent validation.",
+      "cruxes": [
+        "Compliance with internal validation policies vs. predictive performance",
+        "Fairness impacts on young applicants vs. overall AUC improvements",
+        "Explainability sufficiency vs. error rates in reason codes"
+      ],
+      "flip": "The vendor agrees to share training data or model weights for independent validation.",
+      "recorded_at": "2026-11-21T15:16:17Z"
+    },
+    {
+      "id": "preview-en-commercial-lease",
+      "case_group_id": "case-001-commercial-lease",
+      "domain": "legal",
+      "lang": "en",
+      "title": "Early lease termination",
+      "question": "Can the tenant end the lease early without paying the penalty?",
+      "p_for": 75,
+      "p_against": 25,
+      "verified_quotes": 8,
+      "total_quotes": 8,
+      "eclipsed_quotes": 0,
+      "local_sha256_verified": 8,
+      "local_sha256_failed": 0,
+      "latency_s": 13.81,
+      "verdict": "The tenant is likely permitted to terminate without penalty because the landlord's failure to repair the roof triggers the specific exception in Clause 7.2. This clause explicitly overrides the general penalty provision.",
+      "cruxes": [
+        "Whether the email notice for repairs satisfied the 'written notice' requirement",
+        "Whether the failure to use registered mail for the termination notice invalidates the Clause 7.2 right"
+      ],
+      "flip": "Evidence that the repair notice sent via email did not constitute valid 'written notice' under the lease terms.",
+      "recorded_at": "2026-11-20T22:12:28Z"
+    },
+    {
+      "id": "preview-en-four-day-week",
+      "case_group_id": "case-002-four-day-week",
+      "domain": "policy",
+      "lang": "en",
+      "title": "Four-day week for city staff",
+      "question": "Should the city move all of its office staff to a four-day week?",
+      "p_for": 35,
+      "p_against": 65,
+      "verified_quotes": 8,
+      "total_quotes": 8,
+      "eclipsed_quotes": 0,
+      "local_sha256_verified": 8,
+      "local_sha256_failed": 0,
+      "latency_s": 44.7,
+      "verdict": "The evidence favors Side B because the operational costs and service degradation risks outweigh the internal staff benefits. The scale of hiring required to maintain Friday services presents a significant barrier to city-wide adoption.",
+      "cruxes": [
+        "Internal staff benefits versus external service quality and cost",
+        "Reliability of the non-randomized pilot data",
+        "The actual impact of the scheme on staff retention"
+      ],
+      "flip": "Evidence showing that the 60 new hires could be avoided through automation or that citizen complaints did not correlate with the four-day week.",
+      "recorded_at": "2026-11-21T15:15:13Z"
+    },
+    {
+      "id": "preview-tr-dort-gunluk-hafta",
+      "case_group_id": "case-002-four-day-week",
+      "domain": "policy",
+      "lang": "tr",
+      "title": "Belediye personeli için dört günlük çalışma haftası",
+      "question": "Belediye, tüm büro personelini dört günlük çalışma haftasına geçirmeli mi?",
+      "p_for": 35,
+      "p_against": 65,
+      "verified_quotes": 8,
+      "total_quotes": 8,
+      "eclipsed_quotes": 0,
+      "local_sha256_verified": 8,
+      "local_sha256_failed": 0,
+      "latency_s": 16.51,
+      "verdict": "Mevcut kanıtlar, hizmet kalitesindeki düşüş ve personel maliyetindeki artış nedeniyle genel uygulamaya karşı daha ağır basmaktadır. Personel memnuniyetindeki artış önemli olsa da, belediyecilik hizmetlerinin sürekliliği ve mali sürdürülebilirliği daha belirleyici kriterlerdir.",
+      "cruxes": [
+        "Hizmet kalitesi ve vatandaş erişimi",
+        "Ek personel maliyeti ve bütçe etkisi",
+        "Pilot verilerinin bilimsel geçerliliği"
+      ],
+      "flip": "Eğer dört günlük düzenin ek personel alımı gerektirmediği ve vatandaş bekleme sürelerini artırmadığı kanıtlanırsa karar değişir.",
+      "recorded_at": "2026-11-20T22:12:30Z"
+    },
+    {
+      "id": "preview-tr-kira-sozlesmesi",
+      "case_group_id": "case-001-commercial-lease",
+      "domain": "legal",
+      "lang": "tr",
+      "title": "Kira sözleşmesinin erken feshi",
+      "question": "Kiracı, cezai şart ödemeden kira sözleşmesini erken feshedebilir mi?",
+      "p_for": 55,
+      "p_against": 45,
+      "verified_quotes": 8,
+      "total_quotes": 8,
+      "eclipsed_quotes": 0,
+      "local_sha256_verified": 8,
+      "local_sha256_failed": 0,
+      "latency_s": 72.96,
+      "verdict": "Kiracının Madde 7.2 kapsamında cezai şart ödemeden fesih hakkı bulunmaktadır. Ancak bu hakkın kullanımı, Madde 15.3'teki usulüne uygun bildirim şartına bağlıdır.",
+      "cruxes": [
+        "Madde 7.2'deki istisnanın Madde 15.3'teki bildirim usulünden muaf olup olmadığı.",
+        "E-posta ile yapılan bildirimin sözleşmedeki 'yazılı bildirim' şartını karşılayıp karşılamadığı.",
+        "Çatıdaki sızıntının sözleşmeyi cezai şartsız feshetmek için yeterli bir ayıp teşkil edip etmediği."
+      ],
+      "flip": "Eğer e-posta ile yapılan bildirimin Madde 15.3 uyarınca geçerli bir yazılı bildirim olduğu kanıtlanırsa karar Side A lehine kesinleşir.",
+      "recorded_at": "2026-11-21T15:17:31Z"
+    },
+    {
+      "id": "preview-tr-yapay-zeka-kredi-modeli",
+      "case_group_id": "case-003-ai-credit-model",
+      "domain": "risk",
+      "lang": "tr",
+      "title": "Yapay zekâ kredi skorlama modelinin devreye alınması",
+      "question": "Banka, tedarikçinin yapay zekâ kredi skorlama modelini gelecek çeyrekte devreye almalı mı?",
+      "p_for": 35,
+      "p_against": 65,
+      "verified_quotes": 8,
+      "total_quotes": 8,
+      "eclipsed_quotes": 0,
+      "local_sha256_verified": 8,
+      "local_sha256_failed": 0,
+      "latency_s": 44.1,
+      "verdict": "Modelin performans artışı ve lisans süresi kritik olsa da, tespit edilen yaş ayrımcılığı ve veri erişimi eksikliği riskleri çok daha büyüktür. Mevcut şartlar altında modelin devreye alınması hukuki ve etik açıdan uygun değildir.",
+      "cruxes": [
+        "Modelin performans üstünlüğü ile ayrımcılık riski arasındaki denge",
+        "Eğitim verisine erişim eksikliğinin bağımsız doğrulama üzerindeki etkisi",
+        "Lisans bitişinin yarattığı aciliyet ile yasal uyum zorunluluğu arasındaki çatışma"
+      ],
+      "flip": "Tedarikçinin eğitim verisini paylaşması ve modelin yaş bazlı ayrımcılık yapmadığının bağımsız denetimle kanıtlanması kararı değiştirir.",
+      "recorded_at": "2026-11-21T15:18:16Z"
+    }
+  ]
+}

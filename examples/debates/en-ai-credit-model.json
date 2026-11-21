@@ -1,0 +1,121 @@
+{
+  "recorded_at": "2026-11-21T15:16:17Z",
+  "api": "https://bedirsavasi.com/api/debate",
+  "lang": "en",
+  "question": "Should the bank deploy the vendor's AI credit-scoring model next quarter?",
+  "document": "MODEL RISK REVIEW: SUMMARY (synthetic sample)\n\nModel: NovaScore v3, a gradient-boosted credit-scoring model from an external vendor. Intended use: approve or decline personal loans up to 50,000.\n\nPerformance\nOn 48,000 historical applications from 2023 and 2024, NovaScore v3 reached an AUC of 0.81, compared with 0.74 for the bank's current scorecard.\nAt the same approval rate, projected defaults fall by 14%.\n\nFairness\nApproval rates for applicants aged 18 to 25 are 11 percentage points lower than under the current scorecard.\nThe vendor states that age is not an input, but the model uses length of credit history, which is strongly correlated with age.\n\nExplainability\nThe vendor provides reason codes for each decision. In a sample of 200 declined applications, reviewers found the main reason code unclear in 37 cases.\n\nOperations\nThe vendor will not share training data or model weights. Monitoring would rely on monthly reports from the vendor.\nThe licence for the current scorecard expires in nine months.\n\nRegulation\nUnder the bank's internal policy, any model used for credit decisions must allow independent validation of its training data.\nCredit scoring of individuals is classified as high-risk under the EU AI Act, with obligations for both providers and deployers.\n\nReviewer's recommendation. Conditional approval, subject to an independent fairness audit and contractual access to the training data before go-live.",
+  "events": [
+    {
+      "type": "start",
+      "remaining": 8,
+      "engine": {
+        "debater": "@cf/qwen/qwen3.8-27b",
+        "judge": "@cf/google/gemma-4-26b-a4b-it"
+      }
+    },
+    {
+      "type": "sides",
+      "for": {
+        "thesis": "The bank should deploy the model next quarter because it significantly outperforms the current system and meets regulatory requirements.",
+        "claims": [
+          {
+            "text": "The new model demonstrates superior predictive accuracy and reduces projected defaults compared to the existing scorecard.",
+            "quote": "NovaScore v3 reached an AUC of 0.81, compared with 0.74 for the bank's current scorecard.",
+            "verified": true,
+            "start": 262,
+            "end": 351,
+            "sha256": "219cd31bf7dd9b8e03a6dd21c13fc0d075e27c0d24d58c4023966e04051fbfa8"
+          },
+          {
+            "text": "Deployment is necessary to avoid operational disruption, as the current scorecard license expires in nine months.",
+            "quote": "The licence for the current scorecard expires in nine months.",
+            "verified": true,
+            "start": 954,
+            "end": 1015,
+            "sha256": "b50cc76ab64d476b5f5f6d709f0dc2246e21047d4ee0bf5f54f2484455584c53"
+          },
+          {
+            "text": "The model provides explainability through reason codes, satisfying transparency needs despite minor clarity issues in samples.",
+            "quote": "The vendor provides reason codes for each decision.",
+            "verified": true,
+            "start": 674,
+            "end": 725,
+            "sha256": "064411af945a52054d6372e7f3379404e5226926613e018b24b15f4b7af06394"
+          }
+        ]
+      },
+      "against": {
+        "thesis": "The bank must reject NovaScore v3 because it violates internal validation policies and poses unmitigated fairness risks.",
+        "claims": [
+          {
+            "text": "The model violates internal policy because the vendor refuses to share training data, preventing required independent validation.",
+            "quote": "The vendor will not share training data or model weights.",
+            "verified": true,
+            "start": 838,
+            "end": 895,
+            "sha256": "6b14dc989bf7c1a2b29da53412de29e63e0dabc3110b0ab2ac591bbd043e384f"
+          },
+          {
+            "text": "The model creates significant fairness issues for young applicants, with approval rates dropping eleven percentage points compared to the current scorecard.",
+            "quote": "Approval rates for applicants aged 18 to 25 are 11 percentage points lower than under the current scorecard.",
+            "verified": true,
+            "start": 421,
+            "end": 529,
+            "sha256": "8c4d976f46792755940fbddfe40d65293f68433875cfaa6186015f53ae9081a2"
+          },
+          {
+            "text": "The model fails explainability standards, as reviewers found the main reason code unclear in thirty-seven of two hundred declined applications.",
+            "quote": "reviewers found the main reason code unclear in 37 cases.",
+            "verified": true,
+            "start": 768,
+            "end": 825,
+            "sha256": "a604733f8eaa21f9ff844b18a43350bf6a8851b64c395ab721a601bd7e33e148"
+          }
+        ]
+      }
+    },
+    {
+      "type": "rebuttals",
+      "for": {
+        "text": "The explainability issue is minor and manageable. Only 18.5% of sampled declines had unclear codes, meaning the vast majority are transparent. This is a fixable operational gap, not a fundamental flaw, and does not outweigh the model's superior performance and fairness potential.",
+        "target": 3,
+        "quote": "In a sample of 200 declined applications, reviewers found the main reason code unclear in 37 cases.",
+        "verified": true,
+        "start": 726,
+        "end": 825,
+        "sha256": "dcfefd1969c7cfb900c83f863b9eee82df5ea7703ea31ba4e5483c2148fd6277"
+      },
+      "against": {
+        "text": "Claim 3 is weakest. The document explicitly notes that in a sample of 200 declined applications, the main reason code was unclear in 37 cases. This significant failure rate undermines the assertion that the model satisfies transparency needs, especially given the high-risk classification under the EU AI Act.",
+        "target": 3,
+        "quote": "In a sample of 200 declined applications, reviewers found the main reason code unclear in 37 cases.",
+        "verified": true,
+        "start": 726,
+        "end": 825,
+        "sha256": "dcfefd1969c7cfb900c83f863b9eee82df5ea7703ea31ba4e5483c2148fd6277"
+      }
+    },
+    {
+      "type": "verdict",
+      "p_for": 25,
+      "verdict": "The bank should not deploy the model because it fails to meet internal validation requirements due to the vendor's refusal to share data. Superior predictive accuracy cannot override the inability to perform mandatory independent validation.",
+      "cruxes": [
+        "Compliance with internal validation policies vs. predictive performance",
+        "Fairness impacts on young applicants vs. overall AUC improvements",
+        "Explainability sufficiency vs. error rates in reason codes"
+      ],
+      "flip": "The vendor agrees to share training data or model weights for independent validation."
+    },
+    {
+      "type": "done",
+      "verified": 8,
+      "total": 8,
+      "ms": 62474,
+      "remaining": 8,
+      "engine": {
+        "debater": "@cf/qwen/qwen3.8-27b",
+        "judge": "@cf/google/gemma-4-26b-a4b-it"
+      }
+    }
+  ]
+}

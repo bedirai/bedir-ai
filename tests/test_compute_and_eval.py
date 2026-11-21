@@ -52,9 +52,21 @@ class EvalHarnessAndConfigsTests(unittest.TestCase):
     def test_recorded_debates_audit_passes_zero_failures(self):
         res = audit_debates(ROOT / "examples" / "debates")
         self.assertTrue(res["passed"])
-        self.assertEqual(res["quote_audit"]["debates"], 3)
+        self.assertEqual(res["quote_audit"]["debates"], 7)
+        self.assertEqual(res["quote_audit"]["total_claims"], 56)
         self.assertEqual(res["quote_audit"]["local_failures"], 0)
         self.assertEqual(res["quote_audit"]["quote_validity_rate"], 1.0)
+
+    def test_pilot_benchmark_json_matches_recorded_debates(self):
+        audit = audit_debates(ROOT / "examples" / "debates")["quote_audit"]
+        bench = json.loads((ROOT / "benchmarks" / "pilot_benchmark.json").read_text("utf-8"))
+        summary = bench["summary"]
+        self.assertEqual(summary["debates"], audit["debates"])
+        self.assertEqual(summary["total_claims"], audit["total_claims"])
+        self.assertEqual(summary["server_verified"], audit["server_verified"])
+        self.assertEqual(summary["local_sha256_failures"], 0)
+        self.assertEqual(summary["cross_lingual_agreement_rate"], 1.0)
+        self.assertEqual(len(bench["cases"]), 7)
 
     def test_mizan_bench_sample_validates_cleanly(self):
         res = validate_bench(ROOT / "benchmarks" / "mizan_bench_sample.jsonl")

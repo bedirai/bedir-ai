@@ -1,0 +1,121 @@
+{
+  "recorded_at": "2026-11-21T15:17:31Z",
+  "api": "https://bedirsavasi.com/api/debate",
+  "lang": "tr",
+  "question": "Kiracı, cezai şart ödemeden kira sözleşmesini erken feshedebilir mi?",
+  "document": "TİCARİ KİRA SÖZLEŞMESİ: ALINTI VE DOSYA NOTLARI (sentetik örnek)\n\nTaraflar: Liman Gayrimenkul Ltd. (Kiraya Veren) ve Lümen Kahve (Kiracı). Kiralanan: Değirmen Sokak No. 14, zemin kattaki bağımsız bölüm. Kira Süresi: 1 Mart 2025 – 28 Şubat 2028.\n\nMadde 7.1. Kiraya Veren, çatıyı, taşıyıcı sistemi ve ana su borularını iyi durumda tutmakla yükümlüdür.\n\nMadde 7.2. Madde 7.1 kapsamındaki bir ayıp Kiralanan'ın herhangi bir bölümünü kullanılamaz hâle getirirse, Kiracı bunu Kiraya Veren'e yazılı olarak bildirir. Kiraya Veren söz konusu onarımları bildirimden itibaren otuz (30) gün içinde tamamlamazsa, Kiracı bu Sözleşme'yi cezai şart ödemeksizin feshedebilir.\n\nMadde 12.1. Madde 7.2'de düzenlenen hâl saklı kalmak kaydıyla, Kiracı bu Sözleşme'yi Kira Süresi dolmadan sona erdirirse, üç (3) aylık kira bedeline eşit cezai şart öder.\n\nMadde 15.3. Fesih bildirimi yazılı olarak yapılır ve iadeli taahhütlü posta ile gönderilir veya elden teslim edilir.\n\nDosya notları\n4 Haziran 2026: Şiddetli yağmur. Çatıdan oturma alanına su giriyor. Kiracı, kullanım alanının yaklaşık %40'ını oluşturan oturma alanını kapatıyor.\n5 Haziran 2026: Kiracı, Kiraya Veren'in mülk yöneticisine fotoğraflarla birlikte e-posta gönderiyor ve çatının acilen onarılmasını istiyor. Yönetici aynı gün yanıt veriyor: \"Aldık, bir çatı ustası göndereceğiz.\"\n19 Haziran 2026: Bir çatı ustası çatıyı inceliyor ve bir kısmını yamıyor. 2 Temmuz'daki yağmurda yeniden su sızıyor.\n10 Temmuz 2026: Kiraya Veren, çatının 19 Haziran'da büyük ölçüde onarıldığını ve kalan nemin Kiracı'nın havalandırmasından kaynaklandığını bildiriyor.\n14 Temmuz 2026: Kiracı'nın görevlendirdiği bağımsız bir yapı uzmanı, çatının iki noktasında aktif sızıntı olduğunu raporluyor ve havalandırmada bir kusur bulmuyor.\n20 Temmuz 2026: Kiracı, mülk yöneticisine e-posta gönderiyor: \"Madde 7.2 uyarınca kira sözleşmesini feshediyoruz.\" Dosyada iadeli taahhütlü bir mektup bulunmuyor.\n28 Temmuz 2026: Kiraya Veren, Madde 12.1 uyarınca cezai şart olarak üç aylık kira bedelini talep ediyor.",
+  "events": [
+    {
+      "type": "start",
+      "remaining": 7,
+      "engine": {
+        "debater": "@cf/qwen/qwen3.8-27b",
+        "judge": "@cf/google/gemma-4-26b-a4b-it"
+      }
+    },
+    {
+      "type": "sides",
+      "for": {
+        "thesis": "Kiracı, Madde 7.2'deki şartların sağlandığını kanıtladığı için cezai şart ödemeksizin sözleşmeyi feshedebilir.",
+        "claims": [
+          {
+            "text": "Çatıdaki aktif sızıntılar, Kiraya Veren'in onarım yükümlülüğünü ihlal ettiğini ve ayıbın devam ettiğini gösterir.",
+            "quote": "çatının iki noktasında aktif sızıntı olduğunu raporluyor ve havalandırmada bir kusur bulmuyor",
+            "verified": true,
+            "start": 1660,
+            "end": 1753,
+            "sha256": "dc06dcc56dc8c9dd61de6713515b5962d96bdfd56a7ebdde3c003ac988e1fbe2"
+          },
+          {
+            "text": "Kiracı, onarımın tamamlanmaması nedeniyle sözleşmeyi cezai şart ödemeksizin feshetme hakkını kullanmıştır.",
+            "quote": "Kiracı bu Sözleşme'yi cezai şart ödemeksizin feshedebilir",
+            "verified": true,
+            "start": 600,
+            "end": 657,
+            "sha256": "25b5b71fe576994f2e9269124c6234d709c4ecde9851eb7d0bffbce175055907"
+          },
+          {
+            "text": "Madde 12.1'deki cezai şart, Madde 7.2'deki hak saklı kalmak kaydıyla uygulanamaz.",
+            "quote": "Madde 7.2'de düzenlenen hâl saklı kalmak kaydıyla",
+            "verified": true,
+            "start": 672,
+            "end": 721,
+            "sha256": "c8d98a5537495bf1a2dc1a6edb4d6cf308d3058e99cac54d23256a7dcd3c1b2f"
+          }
+        ]
+      },
+      "against": {
+        "thesis": "Kiracı, Madde 15.3'teki yazılı bildirim şartını yerine getirmediği için cezai şarttan kurtulamayacak ve üç aylık kira bedelini ödemek zorundadır.",
+        "claims": [
+          {
+            "text": "Kiracı, sözleşmeyi feshetmek için zorunlu olan iadeli taahhütlü posta veya elden teslim yöntemini kullanmadığı için fesih geçersizdir.",
+            "quote": "Fesih bildirimi yazılı olarak yapılır ve iadeli taahhütlü posta ile gönderilir veya elden teslim edilir.",
+            "verified": true,
+            "start": 844,
+            "end": 948,
+            "sha256": "b96e291307180458bb7a77df9109ac07f8028afa183b8624b9a0ae45c2610392"
+          },
+          {
+            "text": "Dosyada iadeli taahhütlü mektup bulunmadığından, Kiracı'nın e-posta ile yaptığı bildirim hukuki geçerlilik taşımaz.",
+            "quote": "Dosyada iadeli taahhütlü bir mektup bulunmuyor.",
+            "verified": true,
+            "start": 1870,
+            "end": 1917,
+            "sha256": "c599cdbb42ede1b6bf711d97895ab45681ebcb37e36ca6fc931876ceebf2a3e6"
+          },
+          {
+            "text": "Geçersiz fesih nedeniyle Kiracı, kira süresi dolmadan sözleşmeyi sona erdirdiği için cezai şartı ödemekle yükümlüdür.",
+            "quote": "Kiracı bu Sözleşme'yi Kira Süresi dolmadan sona erdirirse, üç (3) aylık kira bedeline eşit cezai şart öder.",
+            "verified": true,
+            "start": 723,
+            "end": 830,
+            "sha256": "75151af6792b0b80840d21ef2c8e791e99c7fa596e391bb01c503d4f8d6e73d5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "rebuttals",
+      "for": {
+        "text": "Bu iddia, Madde 7.2'deki açık istisnayı görmezden gelir. Kiracı, çatı onarımı için verilen 30 günlük sürenin dolmasıyla cezai şart ödemeksizin fesih hakkını kullanmıştır. Bu nedenle, erken fesih cezai şartı devreye giremez.",
+        "target": 3,
+        "quote": "Kiracı bu Sözleşme'yi cezai şart ödemeksizin feshedebilir.",
+        "verified": true,
+        "start": 600,
+        "end": 658,
+        "sha256": "aa518f9863b8713863a240d516ffcc73ad4effa2afad0128aeaf79be68284c19"
+      },
+      "against": {
+        "text": "Kiracı, Madde 15.3'ü ihlal ederek fesih bildirimini yalnızca e-posta ile göndermiştir. Dosyada iadeli taahhütlü mektup veya elden teslim kanıtı bulunmadığından, fesih usulüne uygun yapılmamış ve Madde 7.2'deki hak geçerli şekilde kullanılamamıştır.",
+        "target": 2,
+        "quote": "Fesih bildirimi yazılı olarak yapılır ve iadeli taahhütlü posta ile gönderilir veya elden teslim edilir.",
+        "verified": true,
+        "start": 844,
+        "end": 948,
+        "sha256": "b96e291307180458bb7a77df9109ac07f8028afa183b8624b9a0ae45c2610392"
+      }
+    },
+    {
+      "type": "verdict",
+      "p_for": 55,
+      "verdict": "Kiracının Madde 7.2 kapsamında cezai şart ödemeden fesih hakkı bulunmaktadır. Ancak bu hakkın kullanımı, Madde 15.3'teki usulüne uygun bildirim şartına bağlıdır.",
+      "cruxes": [
+        "Madde 7.2'deki istisnanın Madde 15.3'teki bildirim usulünden muaf olup olmadığı.",
+        "E-posta ile yapılan bildirimin sözleşmedeki 'yazılı bildirim' şartını karşılayıp karşılamadığı.",
+        "Çatıdaki sızıntının sözleşmeyi cezai şartsız feshetmek için yeterli bir ayıp teşkil edip etmediği."
+      ],
+      "flip": "Eğer e-posta ile yapılan bildirimin Madde 15.3 uyarınca geçerli bir yazılı bildirim olduğu kanıtlanırsa karar Side A lehine kesinleşir."
+    },
+    {
+      "type": "done",
+      "verified": 8,
+      "total": 8,
+      "ms": 72958,
+      "remaining": 7,
+      "engine": {
+        "debater": "@cf/qwen/qwen3.8-27b",
+        "judge": "@cf/google/gemma-4-26b-a4b-it"
+      }
+    }
+  ]
+}

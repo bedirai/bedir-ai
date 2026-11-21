@@ -33,6 +33,11 @@ Base models can memorise published court rulings and peer reviews. Every real Mi
 
 ```bash
 python3 -m bedir.eval --validate-bench benchmarks/mizan_bench_sample.jsonl
+python3 -m bedir.eval --debates examples/debates
 ```
 
 The validator verifies required fields, unique IDs, document SHA-256 hashes, character bounds and zero residual PII (TCKN, IBAN, email, phone, IPv4).
+
+## Live protocol preview audit (`pilot_benchmark.json`)
+
+[`pilot_benchmark.json`](pilot_benchmark.json) stores the machine-readable audit summary across 7 live multilingual runs (`EN`, `TR`, `DE` across all 3 case groups): `56/56` quotes verified verbatim (`0` independent local SHA-256 failures) and `100%` cross-lingual directional agreement (`10.0 pp` mean probability spread).

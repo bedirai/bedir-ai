@@ -1,0 +1,121 @@
+{
+  "recorded_at": "2026-11-21T15:18:16Z",
+  "api": "https://bedirsavasi.com/api/debate",
+  "lang": "tr",
+  "question": "Banka, tedarikçinin yapay zekâ kredi skorlama modelini gelecek çeyrekte devreye almalı mı?",
+  "document": "MODEL RİSKİ DEĞERLENDİRMESİ: ÖZET (sentetik örnek)\n\nModel: NovaScore v3, harici bir tedarikçiye ait gradyan artırmalı (gradient boosting) kredi skorlama modeli. Kullanım amacı: 50.000'e kadar bireysel kredi başvurularını onaylamak veya reddetmek.\n\nPerformans\n2023 ve 2024 yıllarına ait 48.000 geçmiş başvuruda NovaScore v3 0,81 AUC değerine ulaştı. Bankanın mevcut skor kartında bu değer 0,74.\nAynı onay oranında öngörülen temerrütler %14 azalıyor.\n\nAdillik\n18–25 yaş arasındaki başvuru sahiplerinin onay oranı, mevcut skor kartına göre 11 yüzde puan daha düşük.\nTedarikçi yaşın bir girdi olmadığını belirtiyor. Ancak model, yaşla güçlü biçimde ilişkili olan kredi geçmişi uzunluğunu kullanıyor.\n\nAçıklanabilirlik\nTedarikçi her karar için gerekçe kodları sağlıyor. Reddedilen 200 başvuruluk bir örneklemde inceleme ekibi, 37 vakada ana gerekçe kodunu anlaşılmaz buldu.\n\nOperasyon\nTedarikçi eğitim verisini veya model ağırlıklarını paylaşmayacak. İzleme, tedarikçinin aylık raporlarına dayanacak.\nMevcut skor kartının lisansı dokuz ay içinde sona eriyor.\n\nMevzuat\nBankanın iç politikasına göre kredi kararlarında kullanılan her model, eğitim verisinin bağımsız olarak doğrulanmasına imkân vermelidir.\nAB Yapay Zekâ Yasası, bireylerin kredi skorlamasını yüksek riskli olarak sınıflandırır ve hem sağlayıcılara hem de uygulayıcılara yükümlülükler getirir.\n\nİnceleme ekibinin önerisi. Koşullu onay: canlıya geçişten önce bağımsız bir adillik denetimi yapılması ve eğitim verisine sözleşmeyle erişim sağlanması şartıyla.",
+  "events": [
+    {
+      "type": "start",
+      "remaining": 6,
+      "engine": {
+        "debater": "@cf/qwen/qwen3.8-27b",
+        "judge": "@cf/google/gemma-4-26b-a4b-it"
+      }
+    },
+    {
+      "type": "sides",
+      "for": {
+        "thesis": "NovaScore v3'ün üstün performansı ve mevcut lisansın sona ermesi, gelecek çeyrekte devreye alınmasını zorunlu kılar.",
+        "claims": [
+          {
+            "text": "Model, mevcut sisteme kıyasla daha yüksek AUC değeri ve önemli ölçüde azalan temerrüt oranı ile üstün performans sergilemektedir.",
+            "quote": "NovaScore v3 0,81 AUC değerine ulaştı. Bankanın mevcut skor kartında bu değer 0,74.",
+            "verified": true,
+            "start": 310,
+            "end": 393,
+            "sha256": "0f88c346972b5cf2e7528cdc3c6c3df2eaacaafee9a075e06e13c2779239e701"
+          },
+          {
+            "text": "Mevcut skor kartının lisansının dokuz ay içinde sona erecek olması, yeni modele geçişi acil ve kaçınılmaz hale getirmektedir.",
+            "quote": "Mevcut skor kartının lisansı dokuz ay içinde sona eriyor.",
+            "verified": true,
+            "start": 996,
+            "end": 1053,
+            "sha256": "d2812cf151bae5ccc46964a7fbf553717eb137732916a0f26d756e766c4fe609"
+          },
+          {
+            "text": "İnceleme ekibinin koşullu onay önerisi, gerekli denetimler yapıldığında modelin canlıya alınabileceğini resmi olarak teyit etmektedir.",
+            "quote": "Koşullu onay: canlıya geçişten önce bağımsız bir adillik denetimi yapılması",
+            "verified": true,
+            "start": 1381,
+            "end": 1456,
+            "sha256": "6d3dcadb80bec8f8291fb2248e63c3d4ef766c2d5f9ffe85d01383528ac19e03"
+          }
+        ]
+      },
+      "against": {
+        "thesis": "NovaScore v3'ün devreye alınması, bağımsız doğrulama eksikliği ve adillik riski nedeniyle bankanın iç politikasıyla ve hukuki yükümlülükleriyle çelişmektedir.",
+        "claims": [
+          {
+            "text": "Tedarikçinin eğitim verisini paylaşmaması, bankanın iç politikasındaki bağımsız doğrulama şartını ihlal etmektedir.",
+            "quote": "Tedarikçi eğitim verisini veya model ağırlıklarını paylaşmayacak.",
+            "verified": true,
+            "start": 880,
+            "end": 945,
+            "sha256": "cdd9b78649de700e89ca6fddeff42c70a34c1f70e927009af2344a44e0cbf4fc"
+          },
+          {
+            "text": "Model, yaşla ilişkili değişkenler kullanarak genç başvuru sahiplerine karşı sistematik bir ayrımcılık yaratmaktadır.",
+            "quote": "18–25 yaş arasındaki başvuru sahiplerinin onay oranı, mevcut skor kartına göre 11 yüzde puan daha düşük.",
+            "verified": true,
+            "start": 458,
+            "end": 562,
+            "sha256": "d510de3077506bda5d3d4e0f507fb4a0922b2a56a6d88b7fa35c0c6f6904054e"
+          },
+          {
+            "text": "AB Yapay Zekâ Yasası, bu tür skorlamayı yüksek riskli sayarak uygulayıcıya ağır yükümlülükler yükler.",
+            "quote": "AB Yapay Zekâ Yasası, bireylerin kredi skorlamasını yüksek riskli olarak sınıflandırır ve hem sağlayıcılara hem de uygulayıcılara yükümlülükler getirir.",
+            "verified": true,
+            "start": 1200,
+            "end": 1352,
+            "sha256": "779165b48939a35b4ca9766de2c9e937bd82ffe129443900d5481ed5faa4d787"
+          }
+        ]
+      }
+    },
+    {
+      "type": "rebuttals",
+      "for": {
+        "text": "Bu iddia zayıftır çünkü inceleme ekibi, adillik denetimi yapılmak ve eğitim verisine erişim sağlanmak koşuluyla koşullu onay vermiştir. Ayrıca model, mevcut skor kartına göre öngörülen temerrütleri %14 azaltarak bankaya net bir finansal fayda sağlamaktadır.",
+        "target": 2,
+        "quote": "Koşullu onay: canlıya geçişten önce bağımsız bir adillik denetimi yapılması ve eğitim verisine sözleşmeyle erişim sağlanması şartıyla.",
+        "verified": true,
+        "start": 1381,
+        "end": 1515,
+        "sha256": "645ea076bad70a255f9a210dde7ece3354c92e868d27c55d3c2b079ac04c92a5"
+      },
+      "against": {
+        "text": "Koşullu onay, modelin şu an canlıya alınabileceğini teyit etmez; aksine, bağımsız denetim ve veri erişimi şartlarını yerine getirilmeden geçişin yapılamayacağını belirtir. Bu şartlar henüz karşılanmadığı için devreye alma kararı verilemez.",
+        "target": 3,
+        "quote": "canlıya geçişten önce bağımsız bir adillik denetimi yapılması ve eğitim verisine sözleşmeyle erişim sağlanması şartıyla",
+        "verified": true,
+        "start": 1395,
+        "end": 1514,
+        "sha256": "291fee9bd245e075ad24fd9f7f671a2a0042971c3a4e7f6bedc29768133566f7"
+      }
+    },
+    {
+      "type": "verdict",
+      "p_for": 35,
+      "verdict": "Modelin performans artışı ve lisans süresi kritik olsa da, tespit edilen yaş ayrımcılığı ve veri erişimi eksikliği riskleri çok daha büyüktür. Mevcut şartlar altında modelin devreye alınması hukuki ve etik açıdan uygun değildir.",
+      "cruxes": [
+        "Modelin performans üstünlüğü ile ayrımcılık riski arasındaki denge",
+        "Eğitim verisine erişim eksikliğinin bağımsız doğrulama üzerindeki etkisi",
+        "Lisans bitişinin yarattığı aciliyet ile yasal uyum zorunluluğu arasındaki çatışma"
+      ],
+      "flip": "Tedarikçinin eğitim verisini paylaşması ve modelin yaş bazlı ayrımcılık yapmadığının bağımsız denetimle kanıtlanması kararı değiştirir."
+    },
+    {
+      "type": "done",
+      "verified": 8,
+      "total": 8,
+      "ms": 44097,
+      "remaining": 6,
+      "engine": {
+        "debater": "@cf/qwen/qwen3.8-27b",
+        "judge": "@cf/google/gemma-4-26b-a4b-it"
+      }
+    }
+  ]
+}

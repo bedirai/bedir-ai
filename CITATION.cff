@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use BedirAI's debate protocol, quote-hash verifier, reward functions or evaluation harness in your research, please cite it as below."
 title: "BedirAI: Evidence-Bound Adversarial Reasoning and Calibrated Debate Oversight"
-version: "0.2.0"
+version: "0.3.0"
 date-released: "2026-11-21"
 license: Apache-2.0
 url: "https://bedirsavasi.com"
